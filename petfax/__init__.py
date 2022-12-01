@@ -4,14 +4,14 @@ def create_app():
     app = Flask(__name__)
 
     @app.route('/')
-    def hello():
+    def index():
         return 'Hello, PetFax!'
     
-    # @app.route('/pets')
-    # def pet():
-    #     return 'Hello, PetFax...gimmie pets!'
 
     from . import pet
     app.register_blueprint(pet.bp)
+
+    from . import fact
+    app.register_blueprint(fact.bp)
     
     return app
